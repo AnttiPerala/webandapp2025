@@ -1,0 +1,4 @@
+div {
+    background-color: red; /* this wont apply because the inline rule is considered more specific */
+    border-radius: 50%;
+}
