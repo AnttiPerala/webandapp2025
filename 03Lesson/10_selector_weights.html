@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body {
+            background-color: royalblue;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: lightcoral !important; /* Be careful about
+            using !important because it will break the normal flow of operations */
+            margin: 1rem;
+        }
+
+        .box {
+            background-color: lightgreen;
+        }
+
+        div#top.box {
+            background-color: darkslategray;
+        }
+
+        #top.box {
+            background-color: gainsboro;
+        }
+    </style>
+
 </head>
 <body>
-    <!-- Break until 10:25 -->
+    <div></div>
+    <div></div>
+    <div class="box"></div>
+    <div id="top" class="box"></div>
+    <div id="second" class="box"></div>
 </body>
 </html>

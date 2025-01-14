@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning</title>
+
+    <style>
+
+        div div {
+            border: 1px solid green;
+            width: 20%;
+            min-height: 1rem;
+        }
+
+      
+
+        .static {
+            position: static; /* Default position so setting it is not usually needed */
+            bottom: 0; /* Doesn't work for static elements */
+            margin-left: 10%; /* Elements can be moved with margins */
+            /* 
+                - The element is positioned according to the normal flow of the document. So it starts in the top left corner where there is space.
+                - The top, right, bottom, and left properties do not affect the element's position.
+
+            */
+        }
+
+        .relative{
+          position: relative;
+          left: 100px;
+          /* 
+          -Positioned according to the normal flow, but can be offset with left or right, top or bottom.
+          */  
+        }
+
+        .absolute {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            /* 
+            - Positioned relative to the nearest positioned ancestor 
+            - If an ancestor does not exist, it is positioned relative to the initial containing block.
+            - The element is removed from the normal document flow, and no space is created for the element in the page layout.
+            - The top, right, bottom, and left properties are used to position the element.
+            */
+        }
+
+        .nestedAbsolute {
+            position: absolute;
+            left: 50px;
+        }
+
+        .relativeParent {
+            margin-left: 500px;
+            position: relative;
+        }
+
+        /* Break until 13:40 */
+    
+    </style>
+
+</head>
+<body>
+
+    <div id="container">
+        <div class="static">Static position</div>
+        <div class="relative">Relative position</div>
+        <div class="absolute">Absolute position</div>
+
+        <!-- Example of nested absolutely positioned element -->
+
+        <div class="relativeParent">
+            <div class="nestedAbsolute">Nested absolute</div>
+        </div>
+    </div>
+    
+</body>
+</html>
