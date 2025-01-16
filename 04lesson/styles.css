@@ -1,15 +1,78 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
     background-color: rgb(255, 255, 255);
+    font-family: 'Rubik-normal', sans-serif;
 }
 
 /* Select both .logo class and nav tag and give the both the same display: inline-block rule */
 .logo, nav {
     display: inline-block;
+    transform: translate(0, -0.6rem);
+}
+
+header {
+    min-height: 10vh;
+    line-height: 10vh;
+    font-size: 1.2rem;
 }
 
 nav {
     /* float: right; */ /* A flot right can do it but floats are a bit old as a technique */
     position: absolute;
-    right: 1rem;
+    right: 2rem;
+}
+
+a {
+    text-decoration: none;
+    margin: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: coral;
+}
+
+.logo {
+    margin-left: 2rem;
+}
+
+main {
+    background: url('img/astronaut-1784245_1920.jpg');
+    min-height: 80vh;
+}
+
+main h1 {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0); /* Center horizontally by using negative half of the element's width */
+
+}
+
+.call-to-action {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, 0);
+}
+
+footer {
+    min-height: 10vh;
+    line-height: 10vh;
+    text-align: center; /* Centers inline content inside a block element */
+}
+
+@font-face {
+    font-family: 'Rubik-normal';
+    src: url('fonts/Rubik/static/Rubik-Regular.ttf');
 }
