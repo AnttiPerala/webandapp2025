@@ -1,0 +1,15 @@
+body {
+    min-height: 95vh; /* Body should always be at least 95% of the viewport height (be it can be more) */
+    background-color: rgb(255, 255, 255);
+}
+
+/* Select both .logo class and nav tag and give the both the same display: inline-block rule */
+.logo, nav {
+    display: inline-block;
+}
+
+nav {
+    /* float: right; */ /* A flot right can do it but floats are a bit old as a technique */
+    position: absolute;
+    right: 1rem;
+}
