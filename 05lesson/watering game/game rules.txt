@@ -5,3 +5,4 @@ water shoots as far away as the board edge is and it waters also through other p
 The turret is a child of the tank, so if the tank rotates, the turret follows.
 If the turret is rotated, the tank does not follow.
 The tank can only drive forward, so it needs to be rotated to move in different directions.
+You can't drive over a plant with the tank.
