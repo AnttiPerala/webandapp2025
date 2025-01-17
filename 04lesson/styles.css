@@ -76,3 +76,20 @@ footer {
     font-family: 'Rubik-normal';
     src: url('fonts/Rubik/static/Rubik-Regular.ttf');
 }
+
+/* This is a media query, which allows us to change the rules when the browser window is less than 701px wide */
+@media screen and (max-width: 700px) {
+
+    nav {
+        position: static;
+        display: block;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    nav a { /* select all a elements but only if they are inside a nav */
+        display: block;
+    }
+}

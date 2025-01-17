@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container {
+            display: flex;
+            min-height: 95vh;
+            justify-content: flex-end; /* Places the elements on the right side */
+            justify-content: center; /* Centers the elements horizontally */
+            justify-content: space-between; /* Distributes the elements evenly */
+            justify-content: space-around; /* Distributes the elements evenly with equal space around them */
+            
+            /* vertical alignment */
+            align-items: flex-start; /* Aligns the items to the top */
+            align-items: center; /* Aligns the items to the center */
+            align-items: flex-end; /* Aligns the items to the bottom */
+
+            flex-direction: column; /* We can change the flex axis like this and now align-items does the horizontal alignment and justify-content does the vertical alignment */
+
+        
+        }
+
+        .myFlexItems {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="myFlexItems"></div>
+        <div class="myFlexItems"></div>
+        <div class="myFlexItems"></div>
+        <div class="myFlexItems"></div>
+        <div class="myFlexItems"></div>
+    </div>
+</body>
+</html>
