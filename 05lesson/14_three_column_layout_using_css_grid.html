@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-rows: 2fr 6fr 1fr;
+            min-height: 100vh;
+            gap: 1rem;
+            background: url(pizza-5311269_1920.jpg);
+        }
+
+        header, footer {
+            grid-column: span 3;
+            text-align: center;
+        }
+
+        aside, main {
+            padding: 1em;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+
+        header, aside, main, footer {
+            padding: 1em;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Tohloppi Pizza and Kebab</h1>
+        </header>
+
+        <aside></aside>
+        <main></main>
+        <aside></aside>
+
+        <footer>
+            Copyright Tohloppi Pizza and Kebab 2025
+        </footer>
+
+    </div>
+
+</body>
+</html>
