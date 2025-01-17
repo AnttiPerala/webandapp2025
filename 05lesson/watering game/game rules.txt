@@ -1,0 +1,4 @@
+you get 20 actions
+try to water as many plants as you can
+each card uses one action (but you can use the same cards many times)
+water shoots as far away as the board edge is and it waters also through other plants.
