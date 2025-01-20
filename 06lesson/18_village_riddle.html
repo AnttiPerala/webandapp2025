@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        let roadToTruth = true; //this road leads to the truth-tellers
+        let roadToLies = false; //this road leads to the liars
+
+        let personWeTalkWith = false; //choose if you talk with the truth teller or the liar by setting this to true (for truth teller) or false (for liar)
+
+        let question = !roadToTruth; //what would the other person say about this road
+
+        let answer = personWeTalkWith ? question : !question; //if the personWeTalkWith says the road does NOT lead to the truth-tellers, take the other road
+
+    </script>
+
+    
+</body>
+</html>

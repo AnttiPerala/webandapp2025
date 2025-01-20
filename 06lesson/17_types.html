@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //Strings are placed inside quotes
+        let myString = "Hello again";
+
+        //Numbers don't have the quotes
+        let myInteger = 10;
+
+        //in some languages you need to specify floats separately from integers, but not in JS
+
+        let myFloat = 2.5;
+
+        (myFloat); //this is how you refer to variables
+
+        //booleans are really simple, they can only be true or false
+
+        let lightsOn = false; //a light switch can only be either on or off
+
+        lightsOn = !lightsOn; //make lightsOn toggle to what lightsOn is NOT
+
+
+        //camelCase is typical for javascript
+        //thisIsMyReallyLongVariableName;
+
+        //kebab-case
+        //this-is-how-you-write-a-variable-name-in-kebab-case;
+
+        //snake_case is often used in python
+        //this_is_my_snake_case_variable_name;
+
+        //arrays can store multiple values
+
+        let fruits = ["apple", "banana", "pear", "orange", "kiwi", "grapefruit"];
+
+        let studentsPresent = ["Niina", "Tomke", "Kelisjah", "Nina", "Severi", "Sofia", "Riika", "Alina"];
+
+        let randomNumber = Math.floor(Math.random() * 8);
+
+        //alert(studentsPresent[randomNumber]);
+
+        let myHeading = document.createElement('h1');
+
+        myHeading.textContent = studentsPresent[randomNumber];
+
+        document.body.appendChild(myHeading);
+
+
+
+
+        
+        
+
+
+    </script>
+    
+</body>
+</html>

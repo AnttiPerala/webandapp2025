@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: red;
+            min-height: 100vh;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="mydiv"></div>
+
+
+
+
+    <script>
+
+        //var userName; //old way of creating a variable but still works
+
+        //let is a variable that you can change/re-assign
+        let userName = ["Mike"];
+
+        alert("Hey " + userName + ", have you learned about our new offering yet? We have a special discount for you today " + userName + ", so login and check it out. In case you don't remember you username, it's " + userName + ". Have a nice day " + userName + "!");
+
+        //we can do this reassignment because the variable is a let
+        userName = "Sara";
+
+        alert("Hey " + userName + ", have you learned about our new offering yet? We have a special discount for you today " + userName + ", so login and check it out. In case you don't remember you username, it's " + userName + ". Have a nice day " + userName + "!");
+
+        //select the body element from the page
+        const pageBody = document.querySelector('body');
+        //give the selected body element a new class
+        pageBody.classList.add('blue');
+
+        //this will produce an error because we are trying to reassign to a const 
+        pageBody = document.querySelector('#mydiv');
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
