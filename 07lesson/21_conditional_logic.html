@@ -34,13 +34,26 @@
 
         //more complex version of the guessing game, allowing multiple guesses:
         let randomNumber = Math.floor(Math.random() * 100) + 1;
-        let userGuess = 0;  
+        let userGuess = 0;
+        let previousGuess = null; //store the previous guess, initialized to null so it doesn't match the first guess
 
         while (userGuess != randomNumber){
             userGuess = prompt('Guess a number between 1 and 100');
 
-            if (userGuess == randomNumber){
+            if (userGuess == randomNumber){ //this part happens if the guess was correct
                 alert('You guessed it!');
+            } else { //this part happens if the guess was not correct
+                if (previousGuess != null){ //here we are checking that the previous guess is no longer null (there are already previous guesses) 
+                    let currentDistance = Math.abs(randomNumber - userGuess);
+                    let previousDistance = Math.abs(randomNumber - previousGuess);
+
+                    if (currentDistance < previousDistance){
+                        alert('This guess was better than the previous one!');
+                    } else {
+                        alert('This guess was worse than the previous one!');
+                    }
+                }
+                previousGuess = userGuess; //update the previous guess variable
             }
         
         }

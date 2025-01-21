@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            line-height: 10px;
+            background-color: black;
+        }
+
+        .box {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(32, 32, 32);
+            margin: 1px;
+            display: inline-block;
+            transition: background-color 5s ease-in;
+        }
+
+        .hovered {
+            background-color: orange;
+            
+        }
+
+        .box:hover {
+        background-color: red; /* Immediate color change on mouseover */
+        transition: none; /* Remove transition on mouseover */
+        }
+
+        .box:not(:hover) {
+        transition: background-color 2s ease-in; /* Add transition only on mouseout */
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+
+        for (let i = 0; i < 9000; i++){
+
+            const myDiv = document.createElement('div');
+            myDiv.classList.add('box');
+            document.body.appendChild(myDiv);
+
+            myDiv.addEventListener('mouseover', function(){
+                myDiv.classList.add('hovered');
+            })
+
+            myDiv.addEventListener('mouseout', function(){
+                myDiv.classList.remove('hovered');
+            })  
+
+        }
+        
+    </script>
+    
+</body>
+</html>
