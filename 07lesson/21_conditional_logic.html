@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        console.log('Hello, World!');
+
+        let myAge = 25;
+
+        //basic if/else statement:
+        if (myAge > 17){
+            console.log('You are old enough to drive');
+        } else {
+            console.log('You are not old enough to drive');
+        }
+
+        
+        /* simple version of the guessing game, allowing just one guess:
+        //generate a random number between 1 and 100
+        let randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        let userGuess = prompt('Guess a number between 1 and 100');
+
+        if (userGuess == randomNumber){
+            alert('You guessed correctly!');         
+        }
+        */
+
+        //more complex version of the guessing game, allowing multiple guesses:
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let userGuess = 0;  
+
+        while (userGuess != randomNumber){
+            userGuess = prompt('Guess a number between 1 and 100');
+
+            if (userGuess == randomNumber){
+                alert('You guessed it!');
+            }
+        
+        }
+
+        //lunch until 12:30
+
+    </script>
+
+</body>
+</html>

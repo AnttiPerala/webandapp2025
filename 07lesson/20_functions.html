@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="number">
+    <button onclick="inchesToCentimeters()">Convert</button>
+
+    <script>
+
+        //functions allow us to reuse code/do the same thing multiple times
+        function giveUsPi(){
+            return 3.14159;
+        }
+
+        //this function can take an input parameter and work with it
+        function fahrenheitToCelsius(fahrenheit){
+            let myResult = (fahrenheit - 32) * 5/9;
+            console.log(myResult);
+        }
+
+        //take input from a html input and display the result on the page
+        function inchesToCentimeters(){
+            let myInput = document.querySelector('input').value; //select the first "input" element on the page and the read its value
+            let answer = myInput * 2.54;
+            //let's change the text of the button to the answer
+            document.querySelector('button').innerText = answer;
+        }
+
+
+    </script>
+    
+</body>
+</html>
