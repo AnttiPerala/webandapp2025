@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <style>
+
+            body {
+                position: relative;
+            } 
+
+            div {
+                min-height: 300px;
+                background-color: aquamarine;
+                margin: 2rem;
+            }
+
+            #video-container{
+                position: absolute;
+                bottom: 0px;
+            }
+        </style>
+
+</head>
+<body>
+    <div id="video-container"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    
+
+    
+    <script>
+
+        const apiKey = 'sdxfcgvhjklasdfghjkladfghjkdfcghj';
+        const endpoint = 'https://www.googleapis.com/youtube/v3/search';
+        const channelId = 'UC0wVQ6StHvTc9sTY-Z44LkQ';
+        const url = `${endpoint}?part=snippet&channelId=${channelId}&order=date&type=video&key=${apiKey}`;
+    
+        fetch(url)
+        .then(response => {
+            if (!response.ok){
+                throw new Error('Network response was not okay.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const videoTitle = data.items[0].snippet.title;
+            const videoId = data.items[0].id.videoId;
+            console.log(`Latest video Title: ${videoTitle}, ID: ${videoId}`);
+             
+            const iframe = document.createElement('iframe');
+      iframe.width = '560';
+      iframe.height = '315';
+      iframe.src = `https://www.youtube.com/embed/${videoId}`;
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+
+      // Insert the iframe into the page
+      const container = document.getElementById('video-container');
+      container.appendChild(iframe);
+    })
+        
+    </script>
+
+</body>
+</html>
