@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        :root {
+            --bar-bg: #5f5f5f;
+            --main-text: #f1f1f1;
+            --accent: #f1c40f;
+            --main-margin: 20px 60px;
+        }
+
+        main {
+            min-height: 85vh;
+            flex-direction: column;
+            margin: var(--main-margin);
+        }
+
+        main, header, footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            margin: var(--main-margin);
+            background-color: var(--accent);
+        }
+
+        header {
+            background-color: var(--bar-bg);
+        }
+
+        footer {
+            background-color: var(--bar-bg);
+        }
+
+        nav {
+                position: relative;
+            }
+
+            .menu-icon {
+                display: none;
+                font-size: 30px;
+                cursor: pointer;
+            }
+
+            #menu-toggle {
+                display: none;
+            }
+
+            .menu {
+                display: flex;
+                list-style: none;
+                padding: 0;
+            }
+
+            .menu li {
+                margin: 0 10px;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: var(--accent);
+            }
+
+            @media (max-width: 768px) {
+                .menu {
+                    display: none;
+                    flex-direction: column;
+                    width: 100%;
+                    background-color: var(--bar-bg);
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                }
+
+                .menu li {
+                    margin: 10px 0;
+                    text-align: center;
+                }
+
+                .menu-icon {
+                    display: block;
+                }
+
+                #menu-toggle:checked + .menu-icon + .menu {
+                    display: flex;
+                }
+            }
+
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1>COMPANY</h1> 
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis temporibus veritatis accusantium illo ipsam iusto rerum qui fuga sunt inventore, repellendus minus, animi eveniet recusandae natus consectetur, tempora quisquam neque.
+        Molestiae, eius? Ipsa atque temporibus explicabo vitae fugiat beatae, nam deleniti velit enim modi dignissimos ullam eum quisquam facere, earum, quibusdam tenetur? Nam, veniam! Molestiae repellendus cupiditate nulla reprehenderit odio?
+        Inventore, necessitatibus a! Perspiciatis voluptatem provident, rerum aperiam quia sequi voluptas, accusamus accusantium minus ipsum similique numquam! Eveniet vel, cumque provident praesentium quod ipsa corporis eligendi a magnam, reiciendis nostrum.
+    
+        <button>Contact Us</button>
+
+    
+    </main>
+
+    <footer>
+        <p>&copy; COMPANY 2025</p>
+    </footer>
+
+
+    
+</body>
+</html>

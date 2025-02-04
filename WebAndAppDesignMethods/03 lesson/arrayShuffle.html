@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        var arr = [
+            "Tomke",
+            "Kelisjah",
+            "Riika",
+            "Simona",
+            "Alina",
+            "Severi",
+            "Sofia"
+        ];
+
+        arr.sort(function () {
+            return Math.random() - 0.5;
+        });
+        console.log(arr);
+
+        document.body.innerHTML = arr.join("<br>"); // join() method joins the elements of an array into a string, and returns the string and br is used to break the line.
+
+
+    </script>
+
+</body>
+
+</html>
