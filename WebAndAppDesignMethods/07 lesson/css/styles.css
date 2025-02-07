@@ -1,0 +1,17 @@
+#mainGrid {
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 6vh;
+    min-height: 90vh;
+    gap: 2px;
+
+}
+
+.gridItem {
+    background-color: #ff6f6f;
+}
+
+.navbar {
+    background-color: rgba(22, 22, 23, .8);
+}
