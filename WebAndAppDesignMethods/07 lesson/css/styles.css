@@ -4,7 +4,7 @@
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 6vh;
     min-height: 90vh;
-    gap: 2px;
+  /*   gap: 2px; */ 
 
 }
 
@@ -17,4 +17,14 @@
     color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
 }
+
+#iPhoneAdHeading{
+    background-color: black;
+    color: white;
+    font-size: 4rem;
+    grid-column: span 3;
+}
+
