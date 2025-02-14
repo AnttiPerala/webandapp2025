@@ -1,0 +1,465 @@
+.contact {
+    background-color: #ff8e80;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .contact .overlap-group-wrapper {
+    overflow: hidden;
+    width: 1440px;
+    height: 1265px;
+  }
+  
+  .contact .overlap-group {
+    position: relative;
+    height: 1265px;
+  }
+  
+  .contact .header {
+    position: absolute;
+    width: 1440px;
+    height: 75px;
+    top: 0;
+    left: 0;
+    background-color: #051f39;
+  }
+  
+  .contact .text-wrapper {
+    position: absolute;
+    top: 22px;
+    left: 99px;
+    font-family: "Inter-Black", Helvetica;
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .contact .div {
+    left: 1051px;
+    white-space: nowrap;
+    position: absolute;
+    top: 27px;
+    font-family: var(--link-text-font-family);
+    font-weight: var(--link-text-font-weight);
+    color: var(--link-color);
+    font-size: var(--link-text-font-size);
+    letter-spacing: var(--link-text-letter-spacing);
+    line-height: var(--link-text-line-height);
+    font-style: var(--link-text-font-style);
+  }
+  
+  .contact .text-wrapper-2 {
+    position: absolute;
+    top: 27px;
+    left: 1164px;
+    font-family: var(--link-text-font-family);
+    font-weight: var(--link-text-font-weight);
+    color: var(--link-color);
+    font-size: var(--link-text-font-size);
+    letter-spacing: var(--link-text-letter-spacing);
+    line-height: var(--link-text-line-height);
+    white-space: nowrap;
+    font-style: var(--link-text-font-style);
+  }
+  
+  .contact .text-wrapper-3 {
+    width: 78px;
+    left: 1307px;
+    position: absolute;
+    top: 27px;
+    font-family: var(--link-text-font-family);
+    font-weight: var(--link-text-font-weight);
+    color: var(--link-color);
+    font-size: var(--link-text-font-size);
+    letter-spacing: var(--link-text-letter-spacing);
+    line-height: var(--link-text-line-height);
+    font-style: var(--link-text-font-style);
+  }
+  
+  .contact .subtract {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    top: 15px;
+    left: 36px;
+  }
+  
+  .contact .rectangle {
+    position: absolute;
+    width: 1440px;
+    height: 1191px;
+    top: 74px;
+    left: 0;
+    background-color: #ff8e80;
+  }
+  
+  .contact .footer {
+    position: absolute;
+    width: 1440px;
+    height: 75px;
+    top: 1190px;
+    left: 0;
+    background-color: #051f39;
+  }
+  
+  .contact .text-wrapper-4 {
+    position: absolute;
+    top: 25px;
+    left: 607px;
+    font-family: var(--link-text-font-family);
+    font-weight: var(--link-text-font-weight);
+    color: var(--link-color);
+    font-size: var(--link-text-font-size);
+    letter-spacing: var(--link-text-letter-spacing);
+    line-height: var(--link-text-line-height);
+    white-space: nowrap;
+    font-style: var(--link-text-font-style);
+  }
+  
+  .contact .business {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    top: 165px;
+    left: 195px;
+  }
+  
+  .contact .ai-generated {
+    top: 463px;
+    left: 195px;
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+  }
+  
+  .contact .img {
+    top: 761px;
+    left: 194px;
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+  }
+  
+  .contact .mike-smith-CEO {
+    top: 255px;
+    position: absolute;
+    left: 457px;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .contact .tom-johnsson-equity {
+    top: 556px;
+    position: absolute;
+    left: 457px;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .contact .sara-monroe-design {
+    top: 851px;
+    position: absolute;
+    left: 457px;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .contact .CONTACT-US {
+    position: absolute;
+    top: 256px;
+    left: 871px;
+    font-family: var(--hero-text-font-family);
+    font-weight: var(--hero-text-font-weight);
+    color: #ffffff;
+    font-size: var(--hero-text-font-size);
+    text-align: center;
+    letter-spacing: var(--hero-text-letter-spacing);
+    line-height: var(--hero-text-line-height);
+    font-style: var(--hero-text-font-style);
+  }
+  
+  .contact .form-contact {
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 320px;
+    align-items: flex-start;
+    gap: var(--size-space-600);
+    padding: var(--size-space-600);
+    position: absolute;
+    top: 455px;
+    left: 875px;
+    background-color: var(--color-background-default-default);
+    border-radius: var(--size-radius-200);
+    border: 1px solid;
+    border-color: var(--color-border-default-default);
+  }
+  
+  .contact .div-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-space-200);
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  
+  .contact .label {
+    position: relative;
+    align-self: stretch;
+    margin-top: -1.00px;
+    font-family: var(--body-base-font-family);
+    font-weight: var(--body-base-font-weight);
+    color: var(--color-text-default-default);
+    font-size: var(--body-base-font-size);
+    letter-spacing: var(--body-base-letter-spacing);
+    line-height: var(--body-base-line-height);
+    font-style: var(--body-base-font-style);
+  }
+  
+  .contact .input {
+    display: flex;
+    min-width: 240px;
+    align-items: center;
+    padding: var(--size-space-300) var(--size-space-400) var(--size-space-300)
+      var(--size-space-400);
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    margin-bottom: -1.00px;
+    margin-left: -1.00px;
+    margin-right: -1.00px;
+    background-color: var(--color-background-default-default);
+    border-radius: var(--size-radius-200);
+    overflow: hidden;
+    border: 1px solid;
+    border-color: var(--color-border-default-default);
+  }
+  
+  .contact .text-wrapper-5 {
+    line-height: var(--single-line-body-base-line-height);
+    position: relative;
+    flex: 1;
+    margin-top: -0.50px;
+    font-family: var(--single-line-body-base-font-family);
+    font-weight: var(--single-line-body-base-font-weight);
+    color: var(--color-text-default-tertiary);
+    font-size: var(--single-line-body-base-font-size);
+    letter-spacing: var(--single-line-body-base-letter-spacing);
+    font-style: var(--single-line-body-base-font-style);
+  }
+  
+  .contact .textarea {
+    display: flex;
+    min-width: 240px;
+    min-height: 80px;
+    align-items: flex-start;
+    padding: var(--size-space-300) var(--size-space-400) var(--size-space-300)
+      var(--size-space-400);
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    margin-bottom: -1.00px;
+    margin-left: -1.00px;
+    margin-right: -1.00px;
+    background-color: var(--color-background-default-default);
+    border-radius: var(--size-radius-200);
+    overflow: hidden;
+    border: 1px solid;
+    border-color: var(--color-border-default-default);
+  }
+  
+  .contact .text-wrapper-6 {
+    line-height: var(--body-base-line-height);
+    position: relative;
+    flex: 1;
+    margin-top: -0.50px;
+    font-family: var(--body-base-font-family);
+    font-weight: var(--body-base-font-weight);
+    color: var(--color-text-default-tertiary);
+    font-size: var(--body-base-font-size);
+    letter-spacing: var(--body-base-letter-spacing);
+    font-style: var(--body-base-font-style);
+  }
+  
+  .contact .drag {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 67px;
+    left: 260px;
+  }
+  
+  .contact .button-group {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--size-space-400);
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  
+  .contact .button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-space-200);
+    padding: var(--size-space-300);
+    position: relative;
+    flex: 1;
+    flex-grow: 1;
+    background-color: var(--color-background-brand-default);
+    border-radius: var(--size-radius-200);
+    overflow: hidden;
+    border: 1px solid;
+    border-color: var(--color-border-brand-default);
+  }
+  
+  .contact .button-2 {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    font-family: var(--single-line-body-base-font-family);
+    font-weight: var(--single-line-body-base-font-weight);
+    color: var(--color-text-brand-on-brand);
+    font-size: var(--single-line-body-base-font-size);
+    letter-spacing: var(--single-line-body-base-letter-spacing);
+    line-height: var(--single-line-body-base-line-height);
+    white-space: nowrap;
+    font-style: var(--single-line-body-base-font-style);
+  }
+  /* Original CSS code here */
+  
+  /* Additional CSS for refactored HTML */
+  .contact {
+    background-color: #FF8E80;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .main-content {
+    position: relative;
+    width: 100%;
+    padding-top: 91px; /* Adjusted to account for header height */
+    
+  }
+  
+  .team-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  
+  .team-member {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  nav {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-link {
+    margin-left: 20px;
+    font-family: var(--link-text-font-family);
+    font-weight: var(--link-text-font-weight);
+    color: var(--link-color);
+    font-size: var(--link-text-font-size);
+    text-decoration: none;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border-default-default);
+    border-radius: var(--size-radius-200);
+    font-family: var(--body-base-font-family);
+    font-size: var(--body-base-font-size);
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button[type="submit"] {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--color-background-brand-hover);
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      height: auto;
+      padding: 20px 0;
+    }
+  
+    nav {
+      position: static;
+      margin-top: 20px;
+      transform: none;
+    }
+  
+    .team-section {
+      flex-direction: column;
+    }
+  
+    .form-contact {
+      width: 90%;
+      max-width: 400px;
+    }
+  }
+  
