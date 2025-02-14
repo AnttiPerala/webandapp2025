@@ -4,6 +4,7 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    min-height: 135vh;
   }
   
   .contact .overlap-group-wrapper {
@@ -19,7 +20,7 @@
   
   .contact .header {
     position: absolute;
-    width: 1440px;
+    width:100vw;
     height: 75px;
     top: 0;
     left: 0;
