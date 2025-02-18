@@ -1,0 +1,114 @@
+/*
+Theme Name: My First WordPress Theme
+Theme URI: https://myaddress.fi/myfirsttheme
+Author: Antti Perälä
+Author URI: www.anttiperala.com
+Description: Minimalistic theme with a large hero section
+Requires at least: 5.0
+Tested up to: 5.0
+Requires PHP: 7.2
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: myfirstwptheme
+Tags: flex layout, minimalistic, simple
+*/
+
+
+  /* Css variables */
+  :root {
+    --primary-color: #051F39;
+    --gutter: 120px;
+}
+
+@font-face{
+    font-family: 'Inter black';
+    src: url('fonts/Inter/static/Inter_24pt-Black.ttf');
+}
+
+@font-face{
+    font-family: 'Inter light';
+    src: url('fonts/Inter/static/Inter_18pt-Light.ttf');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Inter light';
+    background-color: #4A2480;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    height: 75px;
+    background-color: #051F39;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+   
+}
+
+footer{
+    min-height: 75px;
+    background-color: #051F39;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+ul{
+    display: flex;
+    list-style: none;   
+}
+
+li {
+    margin: 2rem;
+}
+
+main{
+    
+    min-height: 90vh;
+    padding: 2rem;
+}
+
+.verticalContent {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blendLuminosity {
+    mix-blend-mode: luminosity;
+}
+
+h1 {
+    font-family: 'Inter black';
+
+}
+
+.wp-block-columns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.heroText {
+    font-size: 10rem;
+    margin: 1rem;
+    line-height: 9.5rem;
+    font-family: 'Inter black';
+}
+
+.dark {
+    background-color: black;
+    color: darkgrey;
+}
