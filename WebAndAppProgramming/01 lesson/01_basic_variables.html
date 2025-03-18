@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+<body>
+
+    <div class="myDiv">Every</div>
+    <div class="myDiv">div</div>
+    <div class="myDiv">contains</div>
+    <div class="myDiv">a different</div>
+    <div class="myDiv">word</div>
+
+    <div class="somethingElse"></div>
+
+
+    <script>
+        var x = "5"; // since the number 5 is stored as a string, it will be converted to a number when subtracting from it (but not when adding to it)
+
+        x -= 2; 
+
+        console.log(x); //will log 3
+
+
+        let myString = "Hello"; //when you use the plus operator, the string just gets longer (no number conversion)
+
+        let result = myString + " World";
+
+        console.log(result); //logs Hello World
+
+        //what are variables typically used for?
+        //answer: everything where you want to give a value a name, for example:
+        let score = 0;
+
+        let gameTime = 0;
+
+        let totalSum = 0;
+
+        //constant variables
+
+        const myConstant = 1;
+        
+        //myConstant++; //throws error: Assignment to constant variable
+
+        console.log(myConstant);
+
+        let myVariable = 1; //you can reassign the values of a let
+
+        myVariable++; //not a problem
+
+        console.log(myVariable); //logs 2
+
+        //when you create a const inside of an event, its a new variable every time the event runs (so we are not reassigning an existing const)
+
+        const myDivs = document.querySelectorAll('.myDiv'); //selects all the elements with the class myDiv
+    
+        myDivs.forEach(function(theDiv){ //does something for each of the selected divs
+
+
+            //this part is not the point of the example, but a question was asked what actual thing we could do
+            theDiv.addEventListener('click', function(){
+
+                if (this.style.fontSize == '5rem'){ // == double equals compares
+                    this.style.fontSize = '1rem'; // = a single equals sign assigns
+
+                } else {
+                    this.style.color = 'blue';
+                    this.style.fontSize = '5rem';
+                }
+
+                
+            })
+
+            //this is the point of this example: the const here is new every time the function runs
+            const myText = theDiv.textContent; //this const will be a new variable for each div, so we are NOT reassignin it even though it logs a different value on each iteration of the loop
+            console.log(myText); //logs five different strings
+        })
+
+        //myDivs is a global variable, which means it is not wiped out when some function has been executed, which means that trying to assign to it again creates an error
+
+        //myDivs = document.querySelectorAll('.somethingElse'); //throws an error
+
+        //a const CAN have its properties altered (but just not reassigned)
+
+        const myEmployeeObject = {
+            name: "John",
+            age: 25,
+            country: "USA"
+        }
+
+       /*  
+       This would throw an error:
+        myEmployeeObject = {
+                name: "Mary",
+                age: 39,
+                country: "UK"
+            }
+        */
+
+        myEmployeeObject.country = "Finland";
+
+        console.log(myEmployeeObject.country);
+
+        //being able to mutate the properties of the objects inside consts makes more sense when you think about selecting html elements: if you could not change any property of an element selected inside a const, that would kind of suck. But you can mutate the properties of an element inside of a const, you just cant reassign the entire const.
+
+        //if using consts feels difficult, you can always use a let instead. A let will not give you any trouble with reasignments.
+
+
+
+    </script>
+</body>
+</html>
