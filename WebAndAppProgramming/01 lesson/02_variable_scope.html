@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="globalVarBox"></div>
+    <div id="calculatorBox">Here is a nice calculator</div>
+
+    <script>
+
+        let myGlobalVariable = "I am global!"; //this variable is global, because its not between any closure or block like {}
+
+        let mySecondGlobalVariable = "I am also global";
+
+        const myEmergencyNumber = 112; //each country has a different emergency number so we might not want to have it global like this
+
+        //document.body.innerHTML = myGlobalVariable + mySecondGlobalVariable; //we can reference the global variable from anywhere in the code. Here we are adding two things to the page at the same time due to a question from students.
+
+        //document.body.innerHTML = "I am a calculator"; //this will wipe out the earlier stuff, unless we use +=
+
+        let globaVarBox = document.getElementById('globalVarBox'); //this is because there was a question about comparmentalizing or having issues with documnet.body.innerHTML wiping out previous content
+
+        globaVarBox.innerHTML = myGlobalVariable + mySecondGlobalVariable;
+
+        //document.body.innerHTML = "Let me add this small detail.."; //wipes out the calculator
+
+
+        //now back to global vs local variables
+
+        function exampleFunction(){
+            const myLocalVariable = "I am local."; //this const does not exist outside of these curly brackets
+            console.log(myLocalVariable); //logs I am local. like expected
+        }
+
+        exampleFunction(); //calls the function
+
+        //console.log('Trying to log a local variable from outside the scope: ' + myLocalVariable); //this will give an error because no variable called myLocalVariable exists in the global scope
+
+        //if we abosulutely want to access the variable that is local inside a function, we have a couple of options
+        //option 1: we can return it from the function
+
+        function myFunctionThatGivesAccessToALocalVariable(){
+            const myLocalVariable = "I am a local variable from the myFunctionThatGivesAccessToALocalVariable function.";
+            return myLocalVariable; //here we are sending the value of the local variable back to the thing that called the function
+        }
+
+        let grabTheReturnValue = myFunctionThatGivesAccessToALocalVariable();
+
+        console.log('The content of grabTheReturnValue is: ', grabTheReturnValue);
+
+        //option 2: just scope the variable outside of the function. The downside is that the variable becomes global.
+
+        let myScopedLocalVariable; //just declaring the variable, not assigning anything to it yet
+
+        function myThirdFunctionForAScopingExample(){
+
+             myScopedLocalVariable = "I will be made globally available";
+
+        }
+
+        myThirdFunctionForAScopingExample();
+
+        console.log('myScopedLocalVariable: ', myScopedLocalVariable);
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

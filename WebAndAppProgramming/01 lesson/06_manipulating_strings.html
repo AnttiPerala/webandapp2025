@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-size: 2rem;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <script>
+
+        let myString = "Hello";
+
+        console.log(myString[0]); //H
+
+        console.log(myString[1]); //e
+
+        //string are immutable, so this wont work
+
+        myString[0] = 'J'; //trying to spell Jello but it wont work
+
+        console.log(myString); //still Hello
+
+        myString += ' World!'; //ths works because a new string is actually created in the background
+
+        console.log(myString); // logs Hello World!
+
+        console.log(myString.length); //gives the amount of characters in a string (12)
+
+        let alphabet = 'abcdefghijklmnopqrstuvwxyz'; 
+
+        //before we can reverse the alphabet, lets talk about str.plit
+        
+        let alphabetArray = alphabet.split(''); //split by every character
+
+        let myBackwardsAlphabet = alphabetArray.reverse().join(''); //reverse the array, the join the string back together
+
+        document.body.innerHTML = myBackwardsAlphabet; 
+
+        let myURL = 'www.ourcompanydomain.com';
+
+        let myURLArray = myURL.split('.'); // splits the domain into three elements www, ourcompanydomain and com
+
+        myURLArray[1] = "ournewfancydomain";
+        
+        let myChangedURL = myURLArray.join('.'); // www.ournewfancydomain.com
+
+        //lets do some slicing
+
+        let stringForSlicing = "Programming is fun!";
+
+        let slicedString = stringForSlicing.slice(0,11); //we are extracting characters between 0 and 11
+
+        console.log(slicedString); //Programming
+
+        slicedString = stringForSlicing.slice(12,14); //logs is
+
+        console.log(slicedString);
+
+        
+
+
+
+
+    </script>
+
+</body>
+</html>

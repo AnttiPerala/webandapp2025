@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #incrementButton {
+            font-size: 5rem;
+            padding: 2rem;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="incrementButton">Increment</button>
+
+    <script>
+
+        var globalCounter = 0; //initialize a global variable with a vague name. Note that using let wont allow us to do this mistake but var does
+
+        const myButton = document.querySelector('#incrementButton');
+        myButton.addEventListener('click', incrementCounter); //calling a named function when button is clicked
+
+        function incrementCounter(){
+            globalCounter++;
+            myButton.textContent = globalCounter;
+            
+        }
+
+    </script>
+    
+
+    <!-- This could be in a totally different JavaScript file somewhere, doing a totally different thing -->
+    <script>
+
+        var globalCounter = 10; //some programmer in some other file has just changed our variable value to 10, confusing us
+        myButton.textContent = globalCounter;
+
+    </script>
+
+    <script>
+
+        var i = 100;
+
+        for (i = 0; i < 10; i++){ //this loop will change the global variable called i. Note that if we declared it in the loop using let i then it would not change the global variable.
+            console.log('the value of i inside the loop is: ', i );
+        }
+
+        console.log('the value of i outside the loop is: ', i );
+
+
+
+    </script>
+
+
+</body>
+</html>

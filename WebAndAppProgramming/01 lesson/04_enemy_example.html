@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .enemy {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgb(139, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            user-select: none;
+            cursor:url(sniper.png) 64 64, auto;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="enemy">&#129324;</div>
+    <div class="enemy">&#129324;</div>
+    <div class="enemy">&#129324;</div>
+    <div class="enemy">&#129324;</div>
+    <div class="enemy">&#129324;</div>
+
+    <script>
+
+        //using global variables like this would be super cumbersome
+        let enemy1health = 100;
+        let enemy2health = 100;
+        let enemy3health = 100;
+        let enemy4health = 100;
+        let enemy5health = 100;
+
+    let theEnemies = document.querySelectorAll('.enemy');
+    
+    theEnemies.forEach(enemy => { //the same as doing function(enemy){}
+
+    enemy.health = 100;
+
+    enemy.addEventListener('click', () => {
+        enemy.health -= 10;
+
+        if (enemy.health < 1) {
+
+            enemy.innerHTML = '&#128565';
+
+        }
+    })
+
+    })  
+
+    </script>
+    
+</body>
+</html>

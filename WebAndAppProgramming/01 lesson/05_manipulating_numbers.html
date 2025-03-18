@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let myNumber = 3; //create a simple number
+        myNumber++; //increment the number by one
+        console.log(myNumber);
+
+        myNumber += 7; //add any number to the existing number in a variable
+
+        console.log(myNumber);
+
+        const mySecondNumber = 2;
+
+        console.log(myNumber + mySecondNumber); //13 
+
+        console.log(myNumber - mySecondNumber); //9
+
+        console.log(myNumber * mySecondNumber); //22
+
+        console.log(myNumber / mySecondNumber); //5.5
+
+        myNumber--; 
+
+        console.log(myNumber); //10 because we didn't save the previous operations to the actual variable
+
+        let myString = '4'; //quoting the number makes it a string
+
+        console.log(myString + myString); //44
+
+        console.log(parseInt(myString) + parseInt(myString)); //logs 8
+
+        let myWeirdNumberString = 'abc';
+
+        console.log(parseInt(myWeirdNumberString)); //NaN not a number
+
+        let myPiFloat = 3.14159;
+
+        console.log(parseInt(myPiFloat)); //3 
+
+        let myDiscountProductPrice = 4.99; 
+
+        console.log(parseInt(myDiscountProductPrice)); //logs 4 because parseInt truncates the decimal
+
+        console.log(Math.round(myDiscountProductPrice)); //this will log 5
+
+        let myFloatString = '12.3456789';
+
+        console.log(Number(myFloatString)+ 2); //Number() can convert also a float looking string into a number 
+
+        
+
+
+    </script>
+
+</body>
+</html>
