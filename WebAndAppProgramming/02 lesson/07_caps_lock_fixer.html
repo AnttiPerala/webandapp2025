@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="capsLockFixer" placeholder="Enter caps lock text here">
+
+    <div id="output"></div>
+
+    <script>
+
+    const capsLockInput = document.querySelector('#capsLockFixer');
+
+    capsLockInput.addEventListener('keyup', function() { //listen to keyboard keys being released for fast updates of the input content
+    
+        const inputString = this.value; //get the value of the input field. "This" is a reference to the element that triggered the event listener
+        const fixedText = fixCapsLock(inputString); //we will soon create a function called fixCapsLock that will fix the caps lock text and we want to pass to it one parameter, the input string
+        const outputDiv = document.querySelector('#output'); //get the output div element
+
+        outputDiv.textContent = fixedText; //set the text content of the output div to the fixed text
+
+    });
+
+    function fixCapsLock(inputText){
+       const lowerCaseText = inputText.toLowerCase(); //convert the input text to lowercase
+       return lowerCaseText.replace(/(^\s*|[.?!]\s+)([a-z])/g, (match, before, letter) => before + letter.toUpperCase())  //this is my example! this should get a capital first letter. 
+    }
+
+    /* 
+
+    .replace() method is used to replace a specified value with another value in a string. The first parameter is the value to be replaced and the second parameter is the value to replace it with. The method returns a new string with the replaced values.
+
+    / is a regular expression literal. Regular expressions are patterns used to match character combinations in strings. 
+    
+    () is a capturing group. It is used to capture a part of the matched string.
+
+    the beginning of a string is represented by ^ and the end of a string is represented by $. To type ^ with a Finnish keyboard, press shift + the key on the right of å and then press space once.
+
+    \s is a whitespace character. It matches any whitespace character including space, tab, newline, and carriage return.
+
+    * is a quantifier. It matches zero or more occurrences of the preceding character.
+
+    | is an like an OR statement. It matches either the expression before or after it. 
+
+    [] is a character set. It matches any character inside the square brackets.
+
+    \s+ is a whitespace character followed by a quantifier +. It matches one or more occurrences of the preceding character.
+
+    ([a-z]) is a capturing group that matches any lowercase letter from a to z.
+
+    g is a global flag. It is used to search for all occurrences of the pattern in the string.
+
+
+    */
+
+    </script>
+    
+</body>
+</html>

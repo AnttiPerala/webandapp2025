@@ -42,7 +42,7 @@
 
         let myBackwardsAlphabet = alphabetArray.reverse().join(''); //reverse the array, the join the string back together
 
-        document.body.innerHTML = myBackwardsAlphabet; 
+        document.body.innerHTML = myBackwardsAlphabet; //note that innerHTML is a little bit dangerous, because it always wipes out the content even if used with += 
 
         let myURL = 'www.ourcompanydomain.com';
 
@@ -64,9 +64,19 @@
 
         console.log(slicedString);
 
+        //toUpperCase and toLowerCase methods allow us to change the case of a string
         
+        const myCapsLockString = "HERE I HAVE BEEN WRITING ALL THIS TEXT WITHOUT REALIZING I HAVE CAPS LOCK ON. IT CANT FIX THIS SECOND SENTENCE FIRST LETTER THOUGH";
 
+        const myParagraph = document.createElement('p'); //create a new paragraph element
 
+        myParagraph.textContent = myCapsLockString.toLowerCase(); //set the text content of the paragraph to the string in lowercase
+
+        document.body.appendChild(myParagraph); //here i have been writing all this text without realizing i have caps lock on.
+
+        myParagraph.textContent = myCapsLockString.toLowerCase().charAt(0).toUpperCase() + myCapsLockString.toLowerCase().slice(1); //set the text content of the paragraph to the string in uppercase
+
+        document.body.appendChild(myParagraph);
 
 
     </script>
