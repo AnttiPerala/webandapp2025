@@ -138,16 +138,59 @@
 
             let shiftedMiddlePart = shiftString(urlPartsArray[0]); //shift the middle part of the url
 
+            //Typical password criteria
+            //-One uppercase letter
+            //-At least one number
+            //-At least one special character like ! ?
+            //-Minimum 8 characters
+            
+            const scrambler = 'Ue!OwrDSn!';
+
+            //lets make sure the password is always at least 8 characters long
+            let loopindex = 0;
+            while (shiftedMiddlePart.length < 10) {
+                shiftedMiddlePart += scrambler[loopindex];
+                console.log(scrambler[loopindex]);
+                loopindex++;
+                
+            }
+
+            shiftedMiddlePartArray = shiftedMiddlePart.split(''); //split the shifted middle part into an array of characters
+
+            shiftedMiddlePartArray.reverse(); //reverse the array of characters
+
+            shiftedMiddlePartArray[6] = scrambler[5]; //make the seventh character a special character
+
+            if (urlPartsArray[1] === "com") {
+                shiftedMiddlePartArray[7] = '?'; //make the seventh character a special character
+            } else {
+                shiftedMiddlePartArray[7] = '!';
+            }
+
+            
+
+
+
+            shiftedMiddlePartArray[2] = scrambler[8]; //make the seventh character a special character
+
+            console.log('shiftedMiddlePartArray: ', shiftedMiddlePartArray);
+
+            shiftedMiddlePartArray[3] = shiftedMiddlePartArray[3].toUpperCase(); //make the fourth character uppercase
 
 
 
 
-
-
-
+            shiftedMiddlePart = shiftedMiddlePartArray.join(''); //join the array of characters back into a string
 
             //finally add the password to the page
-            myKey.textContent = 'The key is: ' + urlPartsArray[0];
+
+            if (urlPartsArray[1] && urlPartsArray[1].length > 1){
+                 myKey.textContent = 'The key is: ' + shiftedMiddlePart;
+            } else {
+                myKey.textContent = 'You are still not a monk.';
+            }
+
+           
 
 
         }
