@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //What are data structures?
+        //Data structures are a way of storing, retrieving and managing collections of data
+
+        //Most common data structures in JS are arrays and objects, and then there are sets and maps
+        //Less common data structures are typed arrays, weakMap and weakSet
+
+        //Arrays
+        //Arrays are ordered collections of values
+
+        let myArray = []; //empty array
+
+        let fruits = ['Apple','Banana', 'Pear']; //an array with some values, by the way tomato is also a fruit
+
+        fruits.push('Tomato'); //add a value to the end of the array
+
+        //we regret the tomato and dont want it in our fruit salad
+        
+        fruits.pop(); //remove the last value from the array
+
+        //we want to add a value to the beginning of the array
+
+        fruits.unshift('Orange'); //add a value to the beginning of the array
+
+        //Filter the array based on the string lenghts
+
+        let longFruits = fruits.filter(myfruit => myfruit.length > 5); //filter the array based on the string lengths
+
+        //iterate over the array using a forEach loop
+
+        fruits.forEach((thefruit) => { //for each fruit in the array, call the individual fruit thefruit and do the following
+            document.body.innerHTML += thefruit + '<br>'; //write the fruit names to the page and add a line break after each one
+        })
+
+    </script>
+    
+</body>
+</html>

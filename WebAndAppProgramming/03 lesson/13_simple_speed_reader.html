@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Reader App</title>
+
+    <style>
+        body {
+            min-height: 98vh;
+            display: flex;
+            flex-direction: column;
+            justify-content:space-evenly; /* this will now affect the vertical axis, because we have changed the flex direction so that the main axis is vertical (column) */
+            align-items:center;
+        }
+
+        #word {
+            font-size: 3rem;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>Speed Reader App</h1>
+    
+    <textarea id="textInput"></textarea>
+
+    <button id="main">Start!</button>
+
+    <div id="word">Paste some text into the text area to get started</div>
+
+    <script>
+
+        const textBoxElem = document.getElementById('textInput'); //get the text area element
+
+        let wordsArray = [];
+
+        //Question for the break: Why is the wordsArray empty when we ask for it in the console?
+
+        textBoxElem.addEventListener('input', () => {
+
+            const textBoxContent = textBoxElem.value; //get the content of the text area
+
+            wordsArray = textBoxContent.split(' '); //grab a hold of the existing wordsArray variable and assign it the value of the split string
+
+            //now that we have an array of words, take the first word and display it inside the #word div
+
+        })
+
+    </script>
+
+</body>
+</html>
