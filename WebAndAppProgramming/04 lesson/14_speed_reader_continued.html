@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Reader App</title>
+
+    <style>
+        body {
+            min-height: 98vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* this will now affect the vertical axis, because we have changed the flex direction so that the main axis is vertical (column) */
+            align-items: center;
+        }
+
+        #word {
+            font-size: 3rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Speed Reader App</h1>
+
+    <textarea id="textInput"></textarea>
+
+    <div id="controls">
+        <button id="minus">-</button>
+        <button id="main">Start!</button>
+        <button id="plus">+</button>
+    </div>
+
+    <div id="word">Paste some text into the text area to get started</div>
+
+    <script>
+
+        const textBoxElem = document.getElementById('textInput'); //get the text area element
+
+        let wordsArray = [];
+        let currentWordIndex = 0; //this will be used to keep track of the current word index in the wordsArray
+        let basePauseTime = 100; //this will the user controlled speed of the app
+        let currentPauseTime = 100; //this will be used to keep track of the current pause time in milliseconds
+        let running = false; //this boolean will be used to keep track of whether the app is running or not
+        const mainButton = document.getElementById('main');
+        const wordDisplay = document.getElementById('word');
+
+        //Question for the break: Why is the wordsArray empty when we ask for it in the console?
+
+        textBoxElem.addEventListener('input', () => {
+
+            const textBoxContent = textBoxElem.value; //get the content of the text area
+
+            wordsArray = textBoxContent.split(' '); //grab a hold of the existing wordsArray variable and assign it the value of the split string
+
+            //now that we have an array of words, take the first word and display it inside the #word div
+
+            wordDisplay.innerText = wordsArray[0]; //grab the first word and display it inside the #word div
+
+        })
+
+        mainButton.addEventListener('click', () => {
+            //do something
+            running = !running; //toggle the running variable
+            if (running) {
+                mainButton.innerText = 'Stop!'; //change the button text to Stop!
+                displayWords(); //call the displayWords function to start displaying words
+            } else {
+                mainButton.innerText = 'Start!'; //change the button text to Start!
+            }
+        })
+
+        document.getElementById('minus').addEventListener('click', () => {
+          basePauseTime += 50; //increase the pause time by 50 milliseconds which makes the text run slower
+        })
+
+        document.getElementById('plus').addEventListener('click', () => {
+          basePauseTime -= 50; //decrease the pause time by 50 milliseconds which makes the text run faster
+        })
+
+
+
+        function displayWords(){
+            if (running){
+            currentWordIndex++;
+            currentPauseTime = basePauseTime; //reset the current pause time to the base pause time
+            let word = wordsArray[currentWordIndex]; //get the current word from the wordsArray
+            wordDisplay.innerText = word; //get the current word from the wordsArray
+            if (/(\.|!|\?|\."|!"|\?")$/.test(word)){ //check if the current word is a punctuation mark, using a regular expression. The dollar symbol checks the end of the string
+             
+                currentPauseTime += basePauseTime*4;
+
+            }
+
+
+            setTimeout(displayWords, currentPauseTime + (currentPauseTime * word.length/8));
+            
+        }
+    }
+
+        
+
+
+
+    </script>
+
+</body>
+
+</html>
