@@ -19,6 +19,11 @@
         #word {
             font-size: 3rem;
         }
+
+        input#progressBar {
+            width: 80%;
+        }
+
     </style>
 
 </head>
@@ -28,6 +33,8 @@
     <h1>Speed Reader App</h1>
 
     <textarea id="textInput"></textarea>
+
+    <input type="range" id="progressBar" min="0" max="100" value="0" step="1" />
 
     <div id="controls">
         <button id="minus">-</button>
@@ -48,18 +55,23 @@
         let running = false; //this boolean will be used to keep track of whether the app is running or not
         const mainButton = document.getElementById('main');
         const wordDisplay = document.getElementById('word');
+        const progressBar = document.getElementById('progressBar');
 
         //Question for the break: Why is the wordsArray empty when we ask for it in the console?
+
 
         textBoxElem.addEventListener('input', () => {
 
             const textBoxContent = textBoxElem.value; //get the content of the text area
 
-            wordsArray = textBoxContent.split(' '); //grab a hold of the existing wordsArray variable and assign it the value of the split string
+            wordsArray = textBoxContent.split(/\s+/); //grab a hold of the existing wordsArray variable and assign it the value of the split string
 
             //now that we have an array of words, take the first word and display it inside the #word div
 
             wordDisplay.innerText = wordsArray[0]; //grab the first word and display it inside the #word div
+
+            progressBar.max = wordsArray.length-1; //set the max value of the progress bar to the length of the wordsArray
+
 
         })
 
@@ -75,34 +87,39 @@
         })
 
         document.getElementById('minus').addEventListener('click', () => {
-          basePauseTime += 50; //increase the pause time by 50 milliseconds which makes the text run slower
+            basePauseTime += 50; //increase the pause time by 50 milliseconds which makes the text run slower
         })
 
         document.getElementById('plus').addEventListener('click', () => {
-          basePauseTime -= 50; //decrease the pause time by 50 milliseconds which makes the text run faster
+            basePauseTime -= 50; //decrease the pause time by 50 milliseconds which makes the text run faster
         })
 
 
 
-        function displayWords(){
-            if (running){
-            currentWordIndex++;
-            currentPauseTime = basePauseTime; //reset the current pause time to the base pause time
-            let word = wordsArray[currentWordIndex]; //get the current word from the wordsArray
-            wordDisplay.innerText = word; //get the current word from the wordsArray
-            if (/(\.|!|\?|\."|!"|\?")$/.test(word)){ //check if the current word is a punctuation mark, using a regular expression. The dollar symbol checks the end of the string
-             
-                currentPauseTime += basePauseTime*4;
+        function displayWords() {
+            if (running && currentWordIndex < wordsArray.length - 1) { //check if the app is running and if there are still words to display
+                currentWordIndex++;
+                progressBar.value = currentWordIndex; //update the progress bar value to the current word index
+                currentPauseTime = basePauseTime; //reset the current pause time to the base pause time
+                let word = wordsArray[currentWordIndex]; //get the current word from the wordsArray
+                wordDisplay.innerText = word; //get the current word from the wordsArray
+                if (/(\.|!|\?|\."|!"|\?")$/.test(word)) { //check if the current word is a punctuation mark, using a regular expression. The dollar symbol checks the end of the string
+
+                    currentPauseTime += basePauseTime * 4;
+
+                }
+
+                //setTimeout will execute code at the desired time interval, in this case we are calling the displayWords function again after the currentPauseTime has passed 
+                setTimeout(displayWords, currentPauseTime + (currentPauseTime * word.length / 8));
 
             }
-
-
-            setTimeout(displayWords, currentPauseTime + (currentPauseTime * word.length/8));
-            
         }
-    }
 
-        
+        progressBar.addEventListener('input', () => {
+            currentWordIndex = progressBar.value; //update the current word index to the value of the progress bar
+            wordDisplay.innerText = wordsArray[currentWordIndex]; //update the word display to the current word index
+        })
+
 
 
 
