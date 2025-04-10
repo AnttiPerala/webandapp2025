@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects</title>
+
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vw;
+        font-family: 'NotoSans', sans-serif;
+      }
+
+      header {
+        grid-column: span 2;
+      }
+
+      body > div {
+        border: 1px solid black;
+        padding: 2vw;
+      }
+
+      button {
+        background-color: #4caf50; /* Green */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #45a049; /* Darker green */
+      }
+
+      .ingredient img {
+        width: 7vw;
+        margin-right: 1vw;
+      }
+      .ingredient {
+        display: flex;
+        align-items: center;
+      }
+
+      @font-face {
+        font-family: "NotoSans";
+        src: url("fonts/NotoSans-Regular.ttf") format("truetype");
+      }
+
+      .recipeHeading {
+        background-color: #d1ebd2; /* LightGreen from same hue*/
+        padding: 0.5rem;
+    }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>RECIPE WEBSITE</h1>
+      <button id="addRecipe">Add New Recipe</button>
+      <button id="addFood">Add New Food</button>
+      <button id="listRecipes">List Recipes</button>
+      <button id="editRecipe">Edit Recipe</button>
+    </header>
+
+    <div id="recipeColumn">
+      <h2>RECIPES</h2>
+      <div id="recipesContainer"></div>
+    </div>
+
+    <div id="ingredientColumn">
+      <h2>INGREDIENTS</h2>
+      <div id="ingredientsContainer"></div>
+    </div>
+
+    <script src="js/globals.js"></script>
+
+    <script src="js/createFoods.js"></script>
+
+    <script src="js/createRecipes.js"></script>
+
+    <script src="js/domLoaded.js"></script>
+
+    <script src="js/unitsConversion.js"></script>
+
+    <script></script>
+  </body>
+</html>
