@@ -61,3 +61,38 @@
     background-color:#a0da95;
     padding: 0.5rem;
     }
+
+    #ingredientDropArea{
+        min-height: 50vh;
+        margin-top: 1rem;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #ingredientDropArea h3 {
+        color: #ccc;
+        text-align: center;
+    }
+
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0.2; }
+        100% { opacity: 1; }
+    }
+
+    .blink {
+        animation: blink 3s infinite;
+    }
+
+    .modal {
+        position: fixed; 
+        top: 50%;
+        left: 50%;
+        min-height: 10vh;
+        width: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f8f6ff;
+    }

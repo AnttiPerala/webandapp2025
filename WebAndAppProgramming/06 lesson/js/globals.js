@@ -1,4 +1,5 @@
 const recipesContainer = document.getElementById("recipesContainer"); //get the recipes container
+const recipeColumn = document.getElementById("recipeColumn"); //get the recipe column
 
 const ingredientsContainer = document.getElementById("ingredientsContainer");
 

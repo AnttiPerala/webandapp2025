@@ -32,9 +32,14 @@
         }
 
         img.alt = "An image of a " + this.name; //set the alt text of the img to the name of the food  
+        img.draggable = false; 
         ingredientDiv.appendChild(img); //append the img to the div
         const ingredientNameH3 = document.createElement('h3'); //create a new h3 element
         ingredientNameH3.innerText = this.name;
+        ingredientDiv.draggable = true; //set the draggable attribute to true
+        ingredientDiv.addEventListener("dragstart", function (e) {
+          e.dataTransfer.setData("text/html", this.outerHTML); // Set the HTML of the dragged element. outerHTML is used to get the entire element including its children
+        });
         ingredientDiv.appendChild(ingredientNameH3); //append the h3 to the div
         ingredientsContainer.appendChild(ingredientDiv); //append the div to the ingredients container
 
