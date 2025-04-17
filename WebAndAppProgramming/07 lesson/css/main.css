@@ -1,0 +1,96 @@
+    body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vw;
+        font-family: 'NotoSans', sans-serif;
+      }
+
+      header {
+        grid-column: span 2;
+      }
+
+      body > div {
+        border: 1px solid black;
+        padding: 2vw;
+      }
+
+      button {
+        background-color: #4caf50; /* Green */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #45a049; /* Darker green */
+      }
+
+      .ingredient img {
+        width: 7vw;
+        margin-right: 1vw;
+      }
+      .ingredient {
+        display: flex;
+        align-items: center;
+      }
+
+      @font-face {
+        font-family: "NotoSans";
+        src: url(../fonts/NotoSans-Regular.ttf) format("truetype");
+      }
+
+      .recipeHeading {
+        background-color: #d1ebd2; /* LightGreen from same hue*/
+        padding: 0.5rem;
+    }
+
+    .blue {
+        background-color: #594eff; /* LightBlue from same hue*/
+        padding: 0.5rem;
+    }
+
+    h2 {
+    background-color:#a0da95;
+    padding: 0.5rem;
+    }
+
+    #ingredientDropArea{
+        min-height: 50vh;
+        margin-top: 1rem;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+ 
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0.2; }
+        100% { opacity: 1; }
+    }
+
+    .blink {
+        animation: blink 3s infinite;
+        color: #ccc;
+        text-align: center;
+    }
+
+    .modal {
+        position: fixed; 
+        top: 50%;
+        left: 50%;
+        min-height: 10vh;
+        width: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f8f6ff;
+    }
