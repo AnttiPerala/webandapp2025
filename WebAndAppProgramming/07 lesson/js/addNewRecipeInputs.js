@@ -14,6 +14,18 @@ function addNewRecipeInputs(){
     ingredientDropArea.id = 'ingredientDropArea'; //set the id to ingredientDropArea
     recipeColumn.appendChild(ingredientDropArea); //append the div to the recipe column
 
+    const instructionsTextArea = document.createElement('textarea'); //create a new textarea element for the instructions
+    instructionsTextArea.placeholder = 'Type the instructions here'; //set the placeholder to Instructions
+    instructionsTextArea.id = 'instructionsTextArea'; //set the id to instructionsTextArea
+    recipeColumn.appendChild(instructionsTextArea); //append the textarea to the recipe column
+
+    const saveRecipeButton = document.createElement('button'); //create a new button element for saving the recipe
+    saveRecipeButton.innerText = 'Save Recipe'; //set the inner text to Save Recipe
+    saveRecipeButton.id = 'saveRecipeButton'; //set the id to saveRecipeButton
+    saveRecipeButton.addEventListener('click', saveRecipeFromInputs); //add an event listener to the button to save the recipe
+    recipeColumn.appendChild(saveRecipeButton); //append the button to the recipe column
+
+
     ingredientDropArea.addEventListener('dragover', function(e) { //add an event listener to the div to allow dropping of ingredients
         e.preventDefault(); //prevent the default behavior of the browser. This is necessary to allow dropping of elements
         this.style.backgroundColor = '#f8f6ff'; //change the background color of the div to light blue when dragging over it
@@ -27,6 +39,8 @@ function addNewRecipeInputs(){
     ingredientDropArea.addEventListener("drop", function (e) {
       //check first if elements exists and then remove
       document.querySelector("h3.blink")?.remove(); // Remove the heading if it exists
+
+      ingredientDropArea.style.alignItems = "flex-start"; //align the items to the start of the div
 
       this.style.backgroundColor = "#fff";
       e.preventDefault(); //prevent the default behavior of the browser. This is necessary to allow dropping of elements
@@ -66,7 +80,7 @@ function addNewRecipeInputs(){
 
         const quantityElement = document.createElement("p"); //create a new p element for the quantity
         quantityElement.innerHTML = ` <span class="quantity">${quantity}</span> <span class="unit">${unit}</span>`; //set the inner html of the p element to the quantity and unit
-        ingredientElement.appendChild(quantityElement); //append the p element to the ingredient element
+        ingredientElement.querySelector('.ingredientInfoWrapper').appendChild(quantityElement); //append the p element to the ingredient element
         modal.remove(); //remove the modal
       });
 

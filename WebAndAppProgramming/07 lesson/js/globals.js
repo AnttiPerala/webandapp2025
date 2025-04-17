@@ -1,9 +1,9 @@
-const recipesContainer = document.getElementById("recipesContainer"); //get the recipes container
+let recipesContainer = document.getElementById("recipesContainer"); //get the recipes container
 const recipeColumn = document.getElementById("recipeColumn"); //get the recipe column
 
 const ingredientsContainer = document.getElementById("ingredientsContainer");
 
-const recipeSystem = {
+let recipeSystem = {
     systemState: "viewingRecipes",
     currentRecipe: null,
     currentIngredient: null,

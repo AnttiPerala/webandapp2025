@@ -72,7 +72,18 @@
         const recipeWeightP = document.createElement("p"); //create a new p element
         recipeWeightP.innerText = `Estimated Weight: ${this.calculateWeight()} g`; //set the inner text of the p to the estimated weight of the recipe
         recipeDiv.appendChild(recipeWeightP); //append the p to the div
-          
+        
+        
+        //check if recipesContainer exists
+        if (!recipeColumn.querySelector("#recipesContainer")) {
+          console.log("recipesContainer not found. Make sure the element exists in the HTML.");
+          recipeColumn.innerHTML = "<h2>RECIPES</h2>"; //clear the recipe column
+          recipesContainer = document.createElement("div");
+          recipesContainer.id = "recipesContainer";
+
+          recipeColumn.appendChild(recipesContainer); //append the div to the recipe column
+        }
+
         recipesContainer.appendChild(recipeDiv); //append the div to the recipes container
         };
 

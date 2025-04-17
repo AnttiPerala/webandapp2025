@@ -3,15 +3,32 @@
         grid-template-columns: 1fr 1fr;
         gap: 5vw;
         font-family: 'NotoSans', sans-serif;
+        background-color: #f3f3f3;
+
       }
 
       header {
         grid-column: span 2;
+        display: flex;
+        padding: 1rem;
       }
+
+      header h1 {
+        margin-right: 2rem;
+      }
+      
 
       body > div {
         border: 1px solid black;
         padding: 2vw;
+      }
+
+      #ingredientColumn {
+        background-color: white;
+      }
+
+      #recipeColumn {
+        background-color: white;
       }
 
       button {
@@ -93,4 +110,12 @@
         width: 50%;
         transform: translate(-50%, -50%);
         background-color: #f8f6ff;
+    }
+
+    #instructionsTextArea{
+        min-height: 5vh;
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+       
     }
