@@ -17,3 +17,23 @@ document.getElementById("ingredientFilter").addEventListener("input", function()
 
 
 }) //add an event listener to the button to call the viewIngredients function when clicked
+
+
+document.getElementById("filterIngredients").addEventListener("click", function(){
+    const searchValue = document.getElementById("ingredientFilter").value;
+
+    getFoodFromDB(searchValue).then((result) => {
+      console.log(result);
+
+      //loop through the result array
+      result.forEach((food) => {
+        //create a new food object
+        const newFood = new Food(food.name, 100, food.energy_calculated_kJ/4.184, food.sugars_total_g, food.protein_total_g, food.fat_total_g, food.
+          fibre_total_g, food.salt_mg * 1000, false, false, false, false, false);
+        //write the ingredient to the page
+        newFood.writeIngredientToPage();
+      })
+    })
+})
+
+

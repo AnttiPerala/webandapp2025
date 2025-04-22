@@ -1,4 +1,4 @@
- //this is where constructor functions come in handy, we can create a function that will create objects for us
+//this is where constructor functions come in handy, we can create a function that will create objects for us
 
  function Food(name, weightSuggestion, caloriesPer100g, sugarPer100g, proteinPer100g, fatPer100g, fiberPer100g, saltPer100g, vegan, vegetarian, glutenFree, lactoseFree, carnivore, customImageName) {
     this.name = name;
@@ -30,6 +30,10 @@
         } else {
             img.src = info.imagesUri + this.name.toLowerCase() + '.png'; //set the src of the img to the file name
         }
+
+        img.onerror = function () {
+            this.src = info.imagesUri + 'missing.png'; // 'this' now correctly refers to the img element
+        };
 
         img.alt = "An image of a " + this.name; //set the alt text of the img to the name of the food  
         img.draggable = false; 

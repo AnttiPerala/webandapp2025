@@ -7,7 +7,7 @@
 
     <div id="ingredientColumn">
       <h2>INGREDIENTS</h2>
-      <input type="text" id="ingredientFilter" placeholder="Filter ingredients...">
+      <input type="text" id="ingredientFilter" placeholder="Filter ingredients..."><button id="filterIngredients">Search ingredients</button>
       <div id="ingredientsContainer"></div>
     </div>
 

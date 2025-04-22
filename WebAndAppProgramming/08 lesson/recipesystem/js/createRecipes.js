@@ -16,6 +16,47 @@
             }
             return totalCalories;
         };
+
+        //calculate the carbs
+        this.calculateCarbs = function() {
+            let totalCarbs = 0;
+            for (let i = 0; i < ingredients.length; i++) {
+                const grams = convertToGrams(ingredients[i].ingredient, ingredients[i].quantity, ingredients[i].unit);
+                totalCarbs += ingredients[i].ingredient.carbsPer100g * (grams / 100);
+            }
+            return totalCarbs;
+        };
+
+        //calculate the sugar
+        this.calculateSugars = function() {
+            let totalSugar = 0;
+            for (let i = 0; i < ingredients.length; i++) {
+                const grams = convertToGrams(ingredients[i].ingredient, ingredients[i].quantity, ingredients[i].unit);
+                totalSugar += ingredients[i].ingredient.sugarPer100g * (grams / 100);
+            }
+            return totalSugar;
+        };
+
+        //calculate the protein
+        this.calculateProtein = function() {
+            let totalProtein = 0;
+            for (let i = 0; i < ingredients.length; i++) {
+                const grams = convertToGrams(ingredients[i].ingredient, ingredients[i].quantity, ingredients[i].unit);
+                totalProtein += ingredients[i].ingredient.proteinPer100g * (grams / 100);
+            }
+            return totalProtein;
+        };
+
+        //calculate the fat
+        this.calculateFat = function() {
+            let totalFat = 0;
+            for (let i = 0; i < ingredients.length; i++) {
+                const grams = convertToGrams(ingredients[i].ingredient, ingredients[i].quantity, ingredients[i].unit);
+                totalFat += ingredients[i].ingredient.fatPer100g * (grams / 100);
+            }
+            return totalFat;
+        };
+
         //lets create a method that will calculate the estimated weight of the resulting recipe
         this.calculateWeight = function() {
             let totalWeight = 0; //we start the count with zero
@@ -70,6 +111,10 @@
 
             ingredientImage.src = info.imagesUri + imageSource; //set the src of the img to the name of the ingredient
 
+            ingredientImage.onerror = function () {
+              this.src = info.imagesUri + 'missing.png'; // 'this' now correctly refers to the img element
+            };
+
             ingredientLi.prepend(ingredientImage); //prepend the img to the li
 
             ingredientsList.appendChild(ingredientLi); //append the li to the ul
@@ -84,6 +129,22 @@
         recipeCaloriesP.innerText = `Total Calories: ${this.calculateCalories()} kcal`; //set the inner text of the p to the total calories of the recipe
         recipeDiv.appendChild(recipeCaloriesP); //append the p to the div
 
+        //displya recipe sugars
+        const recipeSugarsP = document.createElement("p"); //create a new p element
+        recipeSugarsP.innerText = `Total Sugars: ${this.calculateSugars()} g`; //set the inner text of the p to the total carbs of the recipe
+        recipeDiv.appendChild(recipeSugarsP); //append the p to the div
+
+        //displya recipe protein
+        const recipeProteinP = document.createElement("p"); //create a new p element
+        recipeProteinP.innerText = `Total Protein: ${this.calculateProtein()} g`; //set the inner text of the p to the total protein of the recipe
+        recipeDiv.appendChild(recipeProteinP); //append the p to the div
+
+        //displya recipe fat
+        const recipeFatP = document.createElement("p"); //create a new p element
+        recipeFatP.innerText = `Total Fat: ${this.calculateFat()} g`; //set the inner text of the p to the total fat of the recipe
+        recipeDiv.appendChild(recipeFatP); //append the p to the div
+
+        //displya recipe weight
         const recipeWeightP = document.createElement("p"); //create a new p element
         recipeWeightP.innerText = `Estimated Weight: ${this.calculateWeight()} g`; //set the inner text of the p to the estimated weight of the recipe
         recipeDiv.appendChild(recipeWeightP); //append the p to the div
