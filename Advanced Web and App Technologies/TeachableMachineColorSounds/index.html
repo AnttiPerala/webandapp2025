@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .youText {
+            font-size: 200px;
+            color: rgb(0, 0, 0);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #between {
+            width: 100%;
+            height: 100%;
+            background-image: url('betweenFinal.png');
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 99;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div>Teachable Machine Audio Model</div>
+<button type="button" onclick="init()">Start</button>
+<div id="label-container"></div>
+<script src="tm-my-audio-model/tf.min.js"></script>
+<script src="tm-my-audio-model/speech-commands.min.js"></script>
+
+<script type="text/javascript">
+    // more documentation available at
+    // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "http://localhost:8000/tm-my-audio-model/";
+
+    async function createModel() {
+        const checkpointURL = URL + "model.json"; // model topology
+        const metadataURL = URL + "metadata.json"; // model metadata
+
+        const recognizer = speechCommands.create(
+            "BROWSER_FFT", // fourier transform type, not useful to change
+            undefined, // speech commands vocabulary feature, not useful for your models
+            checkpointURL,
+            metadataURL);
+
+        // check that model and metadata are loaded via HTTPS requests.
+        await recognizer.ensureModelLoaded();
+
+        return recognizer;
+    }
+
+    async function init() {
+        document.querySelector("button").innerText = "Loading Model...";
+        const recognizer = await createModel();
+        const classLabels = recognizer.wordLabels(); // get class labels
+        const labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < classLabels.length; i++) {
+            labelContainer.appendChild(document.createElement("div"));
+        }
+
+        // listen() takes two arguments:
+        // 1. A callback function that is invoked anytime a word is recognized.
+        // 2. A configuration object with adjustable fields
+        recognizer.listen(result => {
+            const scores = result.scores; // probability of prediction for each class
+            // render the probability scores per class
+            for (let i = 0; i < classLabels.length; i++) {
+                const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+
+                if (result.scores[i] > 0.86) {
+                    console.log(classLabels[i]);
+                    if (classLabels[i] === "Blue"){
+                        document.body.style.backgroundColor = "blue";
+                    } else if (classLabels[i] === "Background Noise") {
+                        document.body.style.backgroundColor = "white";
+                        document.body.style.backgroundImage = "none";
+                        document.querySelector(".youText")?.remove();
+                        document.querySelector("#between")?.remove();
+                    } else if (classLabels[i] === "Red"){
+                        document.body.style.backgroundColor = "red";
+                    } else if (classLabels[i] === "Green"){
+                        document.body.style.backgroundColor = "green";
+                    } else if (classLabels[i] === "Head") {
+                        document.body.style.backgroundImage = "url('headFinal.png')";
+                        document.body.style.backgroundRepeat = "no-repeat";
+                        document.body.style.backgroundSize = "cover";
+                        document.body.style.backgroundBlendMode = "multiply";
+                    } else if (classLabels[i] === "You"){
+                        const you = document.createElement("h1");
+                        you.innerText = "You!";
+                        you.classList.add("youText");
+                        document.body.appendChild(you);
+
+                    } else if (classLabels[i] === "Between"){
+                        const between = document.createElement("div");
+                        between.id = "between";
+                        document.body.appendChild(between);
+
+                    }
+                }
+
+
+                
+            }
+
+
+
+
+        }, {
+            includeSpectrogram: true, // in case listen should return result.spectrogram
+            probabilityThreshold: 0.75,
+            invokeCallbackOnNoiseAndUnknown: true,
+            overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
+        });
+
+        // Stop the recognition in 5 seconds.
+        // setTimeout(() => recognizer.stopListening(), 5000);
+    }
+</script>
+
+    
+</body>
+</html>

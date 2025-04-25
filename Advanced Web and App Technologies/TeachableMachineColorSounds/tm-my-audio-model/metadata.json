@@ -1,0 +1,14 @@
+{
+    "tfjsSpeechCommandsVersion": "0.4.0",
+    "modelName": "TMv2",
+    "timeStamp": "2025-04-25T07:00:40.262Z",
+    "wordLabels": [
+        "Background Noise",
+        "Between",
+        "Blue",
+        "Green",
+        "Head",
+        "Red",
+        "You"
+    ]
+}
