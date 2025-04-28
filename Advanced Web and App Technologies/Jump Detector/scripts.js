@@ -7,8 +7,8 @@ const boingSound = new Audio('jump.wav');
 
 let detector;
 let previousHipY = null;
-let jumpTreshold = 30;
-let jumpCooldown = 0;
+let jumpTreshold = 17;
+let jumpCooldown = false;
 let jumpCount = 0;
 
 async function init() {
@@ -54,6 +54,38 @@ async function detectJumps(video, detector){
     const poses = await detector.estimatePoses(video);
 
     console.log("Poses detected: ", poses);
+
+    if (poses.length > 0 && !jumpCooldown){ //make sure we have actually detected a pose
+        const keypoints = poses[0].keypoints;
+        const leftHip = keypoints[11];
+        const rightHip = keypoints[12];
+
+        if (leftHip.score > 0.5 && rightHip.score > 0.5){ //make sure we have a valid pose
+            const averagedHipY = (leftHip.y + rightHip.y) / 2;
+
+            if (previousHipY !== null){
+                const deltaY = previousHipY - averagedHipY;
+
+                if (deltaY > jumpTreshold){
+                    //alert("Jump detected!");
+                    jumpCount++;
+                    boingSound.play();
+                    counterElement.textContent = "Jumps: " + jumpCount;
+                    //trigger jump cooldown
+                    jumpCooldown = true;
+                    setTimeout(() => {
+                        jumpCooldown = false;
+                    }, 700);
+                }
+                
+            }
+
+            previousHipY = averagedHipY;
+        }
+
+    }
+
+    
 
     requestAnimationFrame(()=>detectJumps(video, detector));
 
