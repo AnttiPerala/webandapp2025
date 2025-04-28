@@ -20,6 +20,11 @@ async function init() {
         await setupCamera();
         video.play();
 
+        video.onloadeddata = async () => {
+            console.log("Video is ready.");
+            await detectJumps(video, detector);
+        };
+
     } catch (err) {
 
     }
@@ -50,4 +55,8 @@ async function detectJumps(video, detector){
 
     console.log("Poses detected: ", poses);
 
+    requestAnimationFrame(()=>detectJumps(video, detector));
+
 }
+
+init();
